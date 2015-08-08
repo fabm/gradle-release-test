@@ -1,0 +1,25 @@
+apply plugin: 'java'
+apply plugin: 'net.researchgate.release'
+
+buildscript{
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'net.researchgate:gradle-release:2.1.2'
+    }
+}
+
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.5'
+}
+
+allprojects {
+    task hello << {task -> println "I'm version $task.project.version" }
+}
+
+release {
+    failOnUnversionedFiles = false
+}
+
