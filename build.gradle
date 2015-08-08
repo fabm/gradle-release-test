@@ -21,5 +21,6 @@ allprojects {
 
 release {
     failOnUnversionedFiles = false
+    tagTemplate = '${version}'
 }
 
